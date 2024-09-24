@@ -16,6 +16,9 @@ public class CountryEndpoint {
     private CountryRepository countryRepository;
 
     @Autowired
+    PokemonService pokemonService;
+
+    @Autowired
     public CountryEndpoint(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
@@ -24,6 +27,8 @@ public class CountryEndpoint {
     @ResponsePayload
     public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
         GetCountryResponse response = new GetCountryResponse();
+        System.out.println("pokemons: ");
+        System.out.println(pokemonService.getAllPokemons());
         response.setCountry(countryRepository.findCountry(request.getName()));
 
         return response;

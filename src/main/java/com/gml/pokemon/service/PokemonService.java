@@ -1,11 +1,10 @@
 package com.gml.pokemon.service;
 
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Page;
+import com.gml.pokemon.Model.Pokemon;
+import java.util.List;
 
-import com.example.demo.Model.Pokemon;
 
 public interface PokemonService {
     
-    Page<Pokemon> getAllPokemons(Pageable pageable);
+    List<Pokemon> getAllPokemons();
 }
