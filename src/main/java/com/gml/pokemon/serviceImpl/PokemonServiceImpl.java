@@ -16,13 +16,18 @@ public class PokemonServiceImpl implements PokemonService {
     PokemonConvertUtil pokemonConvertUtil = new PokemonConvertUtil();
 
     @Override
-    public List<Pokemon> getAllPokemons() {
+    public List<io.spring.guides.gs_producing_web_service.Pokemon> getAllPokemons(List<io.spring.guides.gs_producing_web_service.Pokemon> pokemons,
+                                                                                  int requestPage, int requestPageSize) {
         RestTemplate restTemplate = new RestTemplate();
         String url = apiUrl ;
         LinkedHashMap retrivedInformation = restTemplate.getForObject(url, LinkedHashMap.class);
-        List<Pokemon> pokemons = pokemonConvertUtil.convertToList(retrivedInformation);
-        //Page<Pokemon> pagePokemons = pokemonConvertUtil.getPage(pageable, pokemons);
-        return pokemons;
+        List<Pokemon> retrivedPokemons = pokemonConvertUtil.convertToList(retrivedInformation);
+        retrivedPokemons = pokemonConvertUtil.getPage(retrivedPokemons, requestPage, requestPageSize);
+        List<io.spring.guides.gs_producing_web_service.Pokemon> xmlPokemons = pokemonConvertUtil.convertToList(retrivedPokemons);
+        for(int i=0; i < xmlPokemons.size(); i++) {
+            pokemons.add(xmlPokemons.get(i));
+        }
+        return xmlPokemons;
 
     }
 }

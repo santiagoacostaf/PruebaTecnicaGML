@@ -1,10 +1,11 @@
 package com.gml.pokemon.service;
 
-import com.gml.pokemon.Model.Pokemon;
+import io.spring.guides.gs_producing_web_service.Pokemon;
+
 import java.util.List;
 
 
 public interface PokemonService {
     
-    List<Pokemon> getAllPokemons();
+    List<io.spring.guides.gs_producing_web_service.Pokemon> getAllPokemons(List<Pokemon> pokemons, int requestPage, int requestPageSize);
 }

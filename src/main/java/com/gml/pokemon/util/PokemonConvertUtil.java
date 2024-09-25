@@ -24,11 +24,22 @@ public class PokemonConvertUtil {
         return returnList;
     }
 
-    /*public Page<Pokemon> getPage(Pageable pageable, List<Pokemon> list) {
-        int start = (int) pageable.getOffset();
-        int end = Math.min((start + pageable.getPageSize()), list.size());
+    public List<io.spring.guides.gs_producing_web_service.Pokemon> convertToList(List<Pokemon> pokemons) {
+        List<io.spring.guides.gs_producing_web_service.Pokemon> returnList = new ArrayList<>();
+        for(int i=0; i<pokemons.size(); i++) {
+            io.spring.guides.gs_producing_web_service.Pokemon xmlPokemon = new io.spring.guides.gs_producing_web_service.Pokemon();
+            xmlPokemon.setName(pokemons.get(i).getName());
+            xmlPokemon.setUrl(pokemons.get(i).getUrl());
+            returnList.add(xmlPokemon);
+        }
+        return returnList;
+    }
+
+    public List<Pokemon> getPage(List<Pokemon> list, int requestPage, int requestPageSize) {
+        int start = requestPage * requestPageSize;
+        int end = Math.min((start + requestPageSize), list.size());
         List<Pokemon> sublist = list.subList(start, end);
-        return new PageImpl<>(sublist, pageable, list.size());
-    }*/
+        return sublist;
+    }
 
 }
