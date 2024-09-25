@@ -1,5 +1,6 @@
-package com.gml.pokemon.service;
+package com.gml.pokemon.endpoints;
 
+import com.gml.pokemon.service.PokemonService;
 import io.spring.guides.gs_producing_web_service.GetPokemonRequest;
 import io.spring.guides.gs_producing_web_service.GetPokemonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,12 @@ public class PokemonEndpoint {
 
     private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
 
-    private CountryRepository countryRepository;
-
     @Autowired
     PokemonService pokemonService;
 
     @Autowired
-    public PokemonEndpoint(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public PokemonEndpoint() {
+
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPokemonRequest")
