@@ -24,15 +24,16 @@ public class PokemonConvertUtil {
         return returnList;
     }
 
-    public List<io.spring.guides.gs_producing_web_service.Pokemon> convertToList(List<Pokemon> pokemons) {
+    public List<io.spring.guides.gs_producing_web_service.Pokemon> convertToList(List<io.spring.guides.gs_producing_web_service.Pokemon> pokemonList,
+                                                                                 List<Pokemon> pokemons) {
         List<io.spring.guides.gs_producing_web_service.Pokemon> returnList = new ArrayList<>();
         for(int i=0; i<pokemons.size(); i++) {
             io.spring.guides.gs_producing_web_service.Pokemon xmlPokemon = new io.spring.guides.gs_producing_web_service.Pokemon();
             xmlPokemon.setName(pokemons.get(i).getName());
             xmlPokemon.setUrl(pokemons.get(i).getUrl());
-            returnList.add(xmlPokemon);
+            pokemonList.add(xmlPokemon);
         }
-        return returnList;
+        return pokemonList;
     }
 
     public List<Pokemon> getPage(List<Pokemon> list, int requestPage, int requestPageSize) {
