@@ -8,7 +8,7 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.gml.pokemon</groupId>
 	<artifactId>producing-web-service-initial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>producing-web-service-initial</name>
@@ -34,6 +34,12 @@
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
