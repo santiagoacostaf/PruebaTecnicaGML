@@ -10,8 +10,8 @@ Instrucciones de instalación:
 Instructiones de uso:
 
 1. Importar el proyecto ubicado en la carpeta soapUI o crear un nuevo proyecto soap con initial WSDL: http://localhost:8080/ws/countries.wsdl
-2. Para consultar la página y el tamaño de la página completar los campos <gs:page>número de la página</gs:page>
-   <gs:pageSize>tamaño de la página</gs:pageSize> como se muestra en la imagen, de momento se están consultando máximo 20 pokemons
+2. Para consultar la página y el tamaño de la página completar los campos <gs:page> número de la página </gs:page>
+   <gs:pageSize> tamaño de la página </gs:pageSize> como se muestra en la imagen, de momento se están consultando máximo 20 pokemons
 3. La lista debería aparecer.
 ![img.png](img.png)
 
